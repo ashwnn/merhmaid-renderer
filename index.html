@@ -1,33 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Merhmaid Renderer</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merhmaid Renderer — Mermaid diagrams with Markdown labels</title>
+    <meta
+      name="description"
+      content="Render Mermaid flowcharts with Markdown-rich node labels in your browser. Export SVG and high-resolution PNG. No backend, no uploads."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1e293b" />
+    <meta property="og:title" content="Merhmaid Renderer" />
+    <meta
+      property="og:description"
+      content="Mermaid diagrams with Markdown-rich node labels — rendering and SVG/PNG export, entirely in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236366f1'/%3E%3Cpath fill='white' d='M6 8.5A2.5 2.5 0 0 1 8.5 6h4A2.5 2.5 0 0 1 15 8.5V11a2.5 2.5 0 0 1-2.5 2.5H11V17h6v-3.5h-1.5A2.5 2.5 0 0 1 13 11V8.5A2.5 2.5 0 0 1 15.5 6h4A2.5 2.5 0 0 1 22 8.5V11a2.5 2.5 0 0 1-2.5 2.5H19v8.5a1.5 1.5 0 0 1-1.5 1.5h-7a1 1 0 0 1-1-1v-6H8.5A2.5 2.5 0 0 1 6 14V8.5Z'/%3E%3C/svg%3E"
+    />
   </head>
-  <body>
-    <main class="app">
-      <h1>Merhmaid Renderer</h1>
-      <p class="subtitle">Render Mermaid flowcharts with Markdown-rich node labels.</p>
-
-      <label for="source">Diagram source</label>
-      <textarea id="source" spellcheck="false">graph LR
-A("**Markdown** node")
-A --> B("`Inline code` in labels")
-B --> C("Supports **bold** and _italic_ text")</textarea>
-
-      <div class="actions">
-        <button id="render" type="button">Render</button>
-        <button id="download-svg" type="button" disabled>Download SVG</button>
-        <button id="download-png" type="button" disabled>Download PNG</button>
-      </div>
-
-      <p id="status" role="status" aria-live="polite"></p>
-      <section id="output" aria-label="Rendered diagram"></section>
-      <div id="measure" aria-hidden="true"></div>
-    </main>
-
-    <script type="module" src="./app.js"></script>
+  <body class="h-full">
+    <div id="root" class="h-full"></div>
+    <noscript>
+      Merhmaid Renderer needs JavaScript enabled: the diagram is rendered in your
+      browser.
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
