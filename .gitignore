@@ -1,2 +1,14 @@
-node_modules/
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
 npm-debug.log*
+.vite
+coverage
+
+# Test artifacts
+test-results
+playwright-report
+blob-report
+tmp-shots
