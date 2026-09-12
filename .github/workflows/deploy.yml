@@ -39,6 +39,22 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      # `configure-pages` does not switch an *existing* Pages site over to
+      # Actions-based deployments (its `enablement` input needs admin rights),
+      # and a branch-sourced site silently ignores the artifact uploaded below —
+      # leaving the repository root online instead of the built app. Fail loudly
+      # instead of shipping a blank page.
+      - name: Verify the Pages source is "GitHub Actions"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.build_type' 2>/dev/null || echo missing)"
+          echo "Pages build_type: ${build_type}"
+          if [ "${build_type}" != "workflow" ]; then
+            echo "::error title=Pages source is not 'GitHub Actions'::This workflow publishes dist/ as a Pages artifact, but the Pages site uses build_type=${build_type}. Choose Settings -> Pages -> Build and deployment -> Source: 'GitHub Actions', then re-run this workflow."
+            exit 1
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
