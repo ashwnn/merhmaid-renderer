@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Render Mermaid diagrams with Markdown-rich node labels, right in the browser.",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

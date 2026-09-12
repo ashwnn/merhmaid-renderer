@@ -167,4 +167,12 @@ tests on every push/PR, and deploy `dist/` to GitHub Pages from `main` (enable
 
 ## Licence
 
-MIT
+Released under the [MIT licence](./LICENSE).
+
+Merhmaid Renderer is inspired by
+[Obsidian Mehrmaid](https://github.com/huterguier/obsidian-mehrmaid) and builds
+on [Mermaid](https://mermaid.js.org) (MIT),
+[marked](https://github.com/markedjs/marked) (MIT),
+[DOMPurify](https://github.com/cure53/DOMPurify) (MPL-2.0 OR Apache-2.0),
+[Radix UI](https://www.radix-ui.com) (MIT) and the
+[shadcn/ui](https://ui.shadcn.com) component stack (MIT).
